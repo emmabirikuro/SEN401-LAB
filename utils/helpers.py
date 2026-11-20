@@ -37,15 +37,21 @@ def calculate_category_totals():
 
 
 def display_category_statistics():
-    #Display waste quantities grouped by category.
+    """Display waste quantities grouped by category."""
 
     totals = calculate_category_totals()
 
-    print("\n========== WASTE STATISTICS ==========")
+    print("\n========== WASTE CATEGORY STATISTICS ==========")
+
+    if not totals:
+        print("No waste records available.")
+        return
 
     for category, quantity in totals.items():
-        print(f"{category}: {quantity} kg")
+        print(f"{category:<15} {quantity:>8.2f} kg")
 
+    print("-" * 35)
+    print(f"{'Total':<15} {sum(totals.values()):>8.2f} kg")
 
 def display_hostel_summary():
     """Display waste quantities grouped by hostel."""

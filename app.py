@@ -17,17 +17,40 @@ from utils.helpers import (
     export_waste_records
 )
 
-
 def add_waste_record():
-    """Add a new student waste collection record."""
-
     print("\n========== ADD WASTE RECORD ==========")
 
-    name = input("Student name: ")
-    hostel = input("Hostel block: ")
-    room = input("Room number: ")
-    waste_type = input("Waste category: ")
-    quantity = float(input("Waste quantity (kg): "))
+    name = input("Student name: ").strip()
+    if not name:
+        print("Error: Student name is required.")
+        return
+
+    hostel = input("Hostel block: ").strip()
+    if not hostel:
+        print("Error: Hostel block is required.")
+        return
+
+    room = input("Room number: ").strip()
+    if not room:
+        print("Error: Room number is required.")
+        return
+
+    waste_type = input("Waste category: ").strip()
+    if not waste_type:
+        print("Error: Waste category is required.")
+        return
+
+
+    try:
+        quantity = float(input("Waste quantity (kg): "))
+
+        if quantity <= 0:
+            print("Error: Quantity must be greater than zero.")
+            return
+
+    except ValueError:
+        print("Error: Please enter a valid number.")
+        return
 
     new_record = {
         "name": name,
@@ -40,7 +63,6 @@ def add_waste_record():
     students.append(new_record)
 
     print("\nWaste record added successfully!")
-
 
 def show_total_waste():
     """Display the total quantity of waste collected."""
