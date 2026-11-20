@@ -49,9 +49,12 @@ def calculate_total_waste():
 
     for student in students:
         total += student["quantity"]
-        return total
+    return total
 
 
 def get_highest_waste_record():
     #Find the student record with the highest waste quantity.
+    if not students:
+        return None
+    
     return max(students, key=lambda student: student["quantity"])

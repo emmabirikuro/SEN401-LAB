@@ -56,6 +56,11 @@ def show_highest_waste():
     record = get_highest_waste_record()
 
     print("\n========== HIGHEST WASTE RECORD ==========")
+
+    if record is None:
+        print("No waste records available.")
+        return
+
     print(f"Student: {record['name']}")
     print(f"Hostel: {record['hostel']}")
     print(f"Quantity: {record['quantity']} kg")
