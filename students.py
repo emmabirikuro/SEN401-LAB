@@ -44,7 +44,7 @@ students = [
 
 
 def calculate_total_waste():
-    #Calculate the total quantity of waste collected.
+    """Calculate the total quantity of waste collected."""
     total = 0
 
     for student in students:
@@ -53,7 +53,7 @@ def calculate_total_waste():
 
 
 def get_highest_waste_record():
-    #Find the student record with the highest waste quantity.
+    """Find the student record with the highest waste quantity."""
     if not students:
         return None
     

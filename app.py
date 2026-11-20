@@ -18,6 +18,7 @@ from utils.helpers import (
 )
 
 def add_waste_record():
+    """Add a new waste record"""
     print("\n========== ADD WASTE RECORD ==========")
 
     name = input("Student name: ").strip()

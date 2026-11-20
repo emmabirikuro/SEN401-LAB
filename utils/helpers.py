@@ -5,7 +5,7 @@ from students import students
 
 
 def display_waste_records():
-    #Display all recorded waste collection activities.
+    """Display all recorded waste collection activities."""
 
     print("\n========== WASTE RECORDS ==========")
 
@@ -20,7 +20,7 @@ def display_waste_records():
 
 
 def calculate_category_totals():
-    #Calculate the total quantity collected per waste category.
+    """Calculate the total quantity collected per waste category."""
 
     category_totals = {}
 
