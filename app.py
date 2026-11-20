@@ -7,13 +7,14 @@ Main application entry point.
 from students import (
     students,
     calculate_total_waste,
-    get_highest_waste_record
+    get_highest_waste_record,
 )
 
 from utils.helpers import (
     display_waste_records,
     display_category_statistics,
-    display_hostel_summary
+    display_hostel_summary,
+    export_waste_records
 )
 
 
@@ -76,6 +77,7 @@ def main():
         print("4. View Waste Category Statistics")
         print("5. View Hostel Waste Summary")
         print("6. View Highest Waste Record")
+        print("7. Export Waste Records to CSV")
         print("0. Exit")
 
         choice = input("Enter your choice: ").strip()
@@ -92,6 +94,8 @@ def main():
             display_hostel_summary()
         elif choice == "6":
             show_highest_waste()
+        elif choice == "7":
+            export_waste_records()    
         elif choice == "0":
             print("Thank you for using Hostel Waste Manager!")
             break

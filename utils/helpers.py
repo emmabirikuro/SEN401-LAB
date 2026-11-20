@@ -1,6 +1,5 @@
-
+import csv
 #Utility functions for Hostel Waste Management System.
-
 
 from students import students
 
@@ -66,3 +65,28 @@ def display_hostel_summary():
 
     for hostel, quantity in hostel_totals.items():
         print(f"{hostel}: {quantity} kg")
+
+def export_waste_records():
+    """Export waste collection records to a CSV file."""
+
+    if not students:
+        print("No waste records available for export.")
+        return
+
+    with open("waste_records.csv", "w", newline="") as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=[
+                "name",
+                "hostel",
+                "room",
+                "waste_type",
+                "quantity"
+            ]
+        )
+
+        writer.writeheader()
+        writer.writerows(students)
+
+    print("\nWaste records exported successfully!")
+    print("File created: waste_records.csv")
